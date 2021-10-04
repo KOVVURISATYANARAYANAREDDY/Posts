@@ -64,3 +64,9 @@ In Encoders before sending output to further sub-layers we add input to output a
 ![Residuals](/Images/Residuals.png)
 
 ## Decoder
+At Decoder side almost everything is same, but we get output vectors as K, V encoded vectors from topmost encoder layer. They can be used in “Encoder-Decoder Attention Layer” in every decoder. The “Encoder-Decoder Attention” layer works just like multiheaded self-attention, except it creates its Queries matrix from the layer below it, and takes the Keys and Values matrix from the output of the encoder stack.
+The Self-Attention in decoder is different from one in Encoder as it masks the Future Tokens so called Masked Self-Attention.
+![Decoder](/Images/Decoder.gif)
+
+This gives a vector of 512 embedding-size. A Linear neural layer is applied to this to get a vector to project this to Vocab-size. Then a softmax is applied to this to get probabilities. Top probabilities can be considered. We can use top-k parameter to consider top-k probable words rather than fixing to top most probable word.
+![Linear](/Images/Linear.png)
