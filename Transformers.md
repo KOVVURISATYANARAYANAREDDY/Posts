@@ -54,7 +54,7 @@ Second step is to find scores. For calculating self-attention for “Thinking”
 
 This is for one attention but Transformers uses Multi-headed-Attentions(8 attention heads). But Why do we need multiple attentions, Because having only one head will make focus on few words neglecting other words so if we have multiple attentions different dependencies can be identified. Then we concat all outputs from different attentions and project to embedding size, which can further be processed by Feed Forward layer.
 
-![All-in-self](All-in-self.png)
+![All-in-self](/Images/All-in-self.png)
 
 These Z vectors are individually processed by Feed Forward network. 
 But still we miss something how can the model knows the position of each token while processing it in Encoder. Here comes **Positional Encoding** we add *Positional Encoding* for each word to its embedding. Positional Encoding just represents the position of each word.
